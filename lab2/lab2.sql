@@ -66,6 +66,9 @@ DELETE FROM countries_new
 WHERE country_id IN (SELECT country_id FROM countries)
 RETURNING *;
 
+DELETE FROM countries_new AS t
+WHERE exists(SELECT DISTINCT country_id FROM countries AS c WHERE c.country_id = t.country_id);
+
 --16
 DELETE FROM countries
 RETURNING *;
