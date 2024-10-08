@@ -64,12 +64,13 @@ FROM customers
 WHERE city = 'Almaty';
 
 
+
 --14
 
-    SELECT *
-FROM departments
-WHERE budget > 60000
-ORDER BY budget ASC, code DESC;
+SELECT *
+  FROM departments
+ WHERE budget > 60000
+ ORDER BY budget ASC, code DESC;
 
 --15
     UPDATE departments
@@ -89,7 +90,5 @@ WHERE department = (SELECT code FROM departments WHERE name = 'IT');
 
 
 --18
-     DELETE FROM employees;
+    DELETE FROM employees;
 
-
---19
