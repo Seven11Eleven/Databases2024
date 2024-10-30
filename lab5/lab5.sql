@@ -11,7 +11,7 @@ CREATE TABLE salesman (
 
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY,
-    cust_name VARCHAR(100),
+    cust_name VARCHAR(100) NOT NULL,
     city VARCHAR(50),
     grade INT,
     salesman_id INT,
@@ -31,8 +31,8 @@ INSERT INTO customers (customer_id, cust_name, city, grade, salesman_id)
 VALUES
 (3002, 'Nick Rimando', 'New York', 100, 5001),
 (3005, 'Graham Zusi', 'California', 200, 5002),
-(3001, 'Brad Guzan', 'London', 100, 5005),
-(3004, 'Fabian Johns', 'Paris', 300, 5006),
+(3001, 'Brada Guzan', 'London', 100, 5005),
+(3004, 'Fabin Johns', 'Paris', 300, 5006),
 (3007, 'Brad Davis', 'New York', 200, 5001),
 (3009, 'Geoff Camero', 'Berlin', 100, 5003),
 (3008, 'Julian Green', 'London', 300, 5002);
@@ -63,24 +63,29 @@ SELECT SUM(purch_amt) FROM orders;
 --4
 SELECT AVG(purch_amt) FROM orders;
 
+SELECT (SUM(orders.purch_amt)/COUNT(orders.purch_amt)) FROM orders;
+
+SELECT STDDEV
 --5
-SELECT COUNT(*) FROM customers;
+SELECT COUNT(cust_name) FROM customers;
 
 --6
 SELECT MIN(purch_amt) FROM orders;
 
 --7
-SELECT * FROM customers WHERE cust_name LIKE '%n';
+SELECT * FROM customers WHERE cust_name LIKE '%n%a%';
 
 --8
-SELECT * FROM orders
-JOIN customers ON orders.customer_id = customers.customer_id
+SELECT * FROM orders--10
+full JOIN customers --5
+    ON orders.customer_id = customers.customer_id--3
 WHERE customers.city = 'New York';
+union = 3 a = 7 b = 2
 
 --9
 SELECT * FROM customers
 JOIN orders ON customers.customer_id = orders.customer_id
-WHERE orders.purch_amt > 10;
+WHERE orders.purch_amt > 10;0?.,mj bvcz GFFDSxv,
 
 --10
 SELECT SUM(grade) FROM customers;
