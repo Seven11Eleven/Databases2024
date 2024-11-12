@@ -6,7 +6,7 @@ CREATE INDEX idx_employees_name_surname ON employees using hash (name, surname);
 
 --3 вообще по дефолту юзается бинарное дерево насколько я помню,
 -- но я решил указать явно, на всякий случай
-CREATE INDEX idx_employees_salary ON employees using btree (salary);
+CREATE UNIQUE INDEX idx_employees_salary ON employees using btree (salary);
 
 --4
 CREATE INDEX idx_employees_name_substr ON employees using hash ((substring(name from 1 for 4)));
