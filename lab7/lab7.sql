@@ -14,3 +14,8 @@ CREATE INDEX idx_employees_name_substr ON employees using hash ((substring(name 
 --5
 CREATE INDEX idx_employees_departments_budget_salary ON employees (department_id, salary);
 CREATE INDEX idx_departments_budget ON departments (budget);
+
+
+
+
+
